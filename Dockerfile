@@ -13,7 +13,7 @@ RUN echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-26" "plat
 ENV ANDROID_HOME $PWD/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-RUN chmod +x ./gradlew
+# RUN chmod +x ./gradlew
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
