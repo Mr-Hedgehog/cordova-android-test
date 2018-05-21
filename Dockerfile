@@ -8,10 +8,7 @@ apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
 # download and extract android sdk
 RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
 RUN unzip android-sdk.zip -d android-sdk-linux
-RUN echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-26"
-RUN echo y | "build-tools;27.0.3"
-RUN echo y | "extras;google;m2repository"
-RUN echo y | "extras;android;m2repository"
+RUN echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-26" "platforms;android-16" "build-tools;27.0.3" "extras;google;m2repository" "extras;android;m2repository"
 
 ENV ANDROID_HOME $PWD/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
