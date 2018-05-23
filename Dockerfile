@@ -3,7 +3,7 @@ FROM openjdk:8-jdk
 MAINTAINER Mr.Hedgehoog
 RUN \
 apt-get update --yes && \
-apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
+apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1 build-essential
 
 # download and extract android sdk
 RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
@@ -56,5 +56,6 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 RUN npm install -g cordova@8.0.0
+RUN npm install -g @angular/cli@1.7.4
 
 CMD [ "node" ]
